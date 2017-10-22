@@ -36,7 +36,7 @@ vols: {[] time: `timespan$(); sym: `symbol$()}
 
 weights: {[] time: `timespan$(); sym: `symbol$()}
 
-/ v: {[eventStart; eventEnd; 
+
 
 
 eventSymbols:([] eventSym: `symbol$(); description: (); usualStartTime: `time$(); usualEndTime: `time$(); defaultBaseWeight: `float$())
