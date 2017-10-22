@@ -1,0 +1,13 @@
+
+git status
+# will show you all modified files in the working tree
+
+git add <file path>
+# will add any changed files what you're about to commit
+
+git commit -m origin master <file path1> <file path2> ...
+# will commit changes to the specified filed
+
+git push origin master
+# will push files to the remote repo
+
