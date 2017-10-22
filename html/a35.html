@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+
+  </script>
+</head>
+<link rel="stylesheet" type="text/css" href="css/a35.css"></link>
+<link href="css/jquery-ui.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/handsontable.full.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+  <div class="ui-widget">
+    <label for="pair">Pair: </label>
+    <input id="pair">
+  </div>
+  <br />
+  <div id="params">
+  </div>
+
+
+<script>
+function getUrl(){
+  var protocol = window.location.protocol;
+  var host     = window.location.hostname;
+  var port     = window.location.port;
+  return "://" + host + ":" + port
+}
+
+function connect(){
+  if ("WebSocket" in window){ // check if WebSockets supported
+    // open a WebSocket
+    ws = new WebSocket("ws" + getUrl());
+    ws.binaryType="arraybuffer";
+    ws.onopen = function(){
+        // called upon successful WebSocket connection
+        console.log("Successful websocket connection to KDB")
+   };
+   ws.onmessage = function(msg){
+      var data = msg.data;
+
+      console.log(deserialize(data));
+    };
+    ws.onclose = function(){
+      // called when WebSocket is closed.
+      console.log("Disconnected from KDB")
+    };
+  }
+  else{
+    console.log("Failed to connect to KDB server");
+  }
+}
+</script>
+
+
+
+
+
+<script src="js/c.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+
+<script src="js/handsontable.full.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/a35.js"></script>
+
+</body>
+</html>
